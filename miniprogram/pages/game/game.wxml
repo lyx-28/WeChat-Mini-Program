@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="game-header" wx:if="{{ started }}">
+    <view class="score-box">
+      <text class="label">得分</text>
+      <text class="value">{{ score }}</text>
+    </view>
+    <view class="time-box">
+      <text class="label">时间</text>
+      <text class="value {{ timeLeft <= 10 ? 'warning' : '' }}">{{ timeLeft }}s</text>
+    </view>
+    <view class="pairs-box">
+      <text class="label">配对</text>
+      <text class="value">{{ matchedPairs }}/{{ totalPairs }}</text>
+    </view>
+  </view>
+
+  <view class="start-screen" wx:if="{{ !started }}">
+    <view class="title-wrap">
+      <text class="title">记忆翻牌</text>
+      <text class="subtitle">找出相同的水果配对</text>
+    </view>
+    <view class="buttons-wrap">
+      <button class="start-btn" bindtap="startGame">开始游戏</button>
+      <button class="ranking-btn" bindtap="goToRanking">排行榜</button>
+    </view>
+  </view>
+
+  <view class="game-screen" wx:else>
+    <view class="board">
+      <view wx:for="{{ cards }}" wx:key="id" class="card" bindtap="flipCard" data-id="{{ item.id }}">
+        <view class="card-inner {{ item.flipped || item.matched ? 'flipped' : '' }}">
+          <view class="card-face card-back">?</view>
+          <view class="card-face card-front">{{ item.icon }}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="game-over" wx:if="{{ gameOver }}">
+    <view class="overlay-content">
+      <text class="over-title">{{ isWin ? '🎉 恭喜通关！' : '⏰ 时间到！' }}</text>
+      <text class="over-score">最终得分: {{ score }}</text>
+      <text class="over-pairs">配对成功: {{ matchedPairs }}/{{ totalPairs }}</text>
+      <button class="restart-btn" bindtap="startGame">再来一局</button>
+      <button class="ranking-btn" bindtap="goToRanking">查看排行榜</button>
+    </view>
+  </view>
+</view>
