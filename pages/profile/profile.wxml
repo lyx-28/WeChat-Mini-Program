@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="user-header">
+    <view class="avatar-wrapper">
+      <view class="avatar-placeholder">{{userInfo.nickName ? userInfo.nickName[0] : '学'}}</view>
+    </view>
+    <view class="user-info">
+      <view class="nickname-row">
+        <text class="nickname">{{userInfo.nickName || '学习者'}}</text>
+        <text class="edit-btn" bindtap="onEditNickname">编辑</text>
+      </view>
+      <text class="bio">{{userInfo.bio || '坚持每日学习，成为更好的自己'}}</text>
+    </view>
+  </view>
+
+  <view class="stats-section">
+    <view class="stats-card">
+      <view class="stat-item">
+        <text class="stat-value">{{stats.totalDays}}</text>
+        <text class="stat-label">累计天数</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.streakDays}}</text>
+        <text class="stat-label">连续打卡</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{stats.totalHours}}h</text>
+        <text class="stat-label">学习时长</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goToHistory">
+      <view class="menu-left">
+        <text class="menu-icon">📚</text>
+        <text class="menu-text">我的打卡</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goToStats">
+      <view class="menu-left">
+        <text class="menu-icon">📊</text>
+        <text class="menu-text">学习统计</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goToSettings">
+      <view class="menu-left">
+        <text class="menu-icon">⚙️</text>
+        <text class="menu-text">设置</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="onShare">
+      <view class="menu-left">
+        <text class="menu-icon">📤</text>
+        <text class="menu-text">分享给好友</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text class="footer-text">学习打卡小程序 v1.0</text>
+  </view>
+</view>

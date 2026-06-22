@@ -1,0 +1,236 @@
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20rpx;
+  padding-bottom: 160rpx;
+}
+
+.detail-card {
+  background: white;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 24rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+
+.date-section {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.date-day {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: #4CAF50;
+  line-height: 1;
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-month {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.date-weekday {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.duration-badge {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+  padding: 12rpx 24rpx;
+  border-radius: 30rpx;
+}
+
+.duration-icon {
+  font-size: 28rpx;
+}
+
+.duration-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+.card-body {
+  padding: 24rpx 0;
+}
+
+.content-section, .notes-section {
+  margin-bottom: 24rpx;
+}
+
+.section-label {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.content-text {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+}
+
+.notes-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.card-footer {
+  padding-top: 20rpx;
+  border-top: 2rpx solid #f0f0f0;
+}
+
+.created-time {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.action-section {
+  display: flex;
+  gap: 24rpx;
+}
+
+.btn-edit, .btn-delete {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  padding: 28rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+}
+
+.btn-delete {
+  background: #fff;
+  color: #e53935;
+  border: 2rpx solid #e53935;
+}
+
+.btn-icon {
+  font-size: 32rpx;
+}
+
+.edit-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 640rpx;
+  background: white;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 32rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+
+.modal-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.modal-close {
+  font-size: 36rpx;
+  color: #999;
+  padding: 8rpx;
+}
+
+.modal-body {
+  padding: 28rpx 32rpx;
+}
+
+.form-item {
+  margin-bottom: 20rpx;
+}
+
+.form-label {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.form-input {
+  padding: 24rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.form-textarea {
+  padding: 24rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  min-height: 160rpx;
+}
+
+.modal-footer {
+  display: flex;
+  border-top: 2rpx solid #f0f0f0;
+}
+
+.btn-cancel, .btn-save {
+  flex: 1;
+  padding: 28rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  border: none;
+}
+
+.btn-cancel {
+  background: #f5f5f5;
+  color: #666;
+  border-radius: 0 0 0 20rpx;
+}
+
+.btn-save {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border-radius: 0 0 20rpx 0;
+}

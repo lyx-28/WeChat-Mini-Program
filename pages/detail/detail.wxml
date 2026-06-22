@@ -1,0 +1,71 @@
+<view class="container">
+  <view class="detail-card" wx:if="{{checkin}}">
+    <view class="card-header">
+      <view class="date-section">
+        <text class="date-day">{{formatDay(checkin.date)}}</text>
+        <view class="date-info">
+          <text class="date-month">{{formatMonth(checkin.date)}}</text>
+          <text class="date-weekday">{{getWeekday(checkin.date)}}</text>
+        </view>
+      </view>
+      <view class="duration-badge">
+        <text class="duration-icon">⏱️</text>
+        <text class="duration-text">{{checkin.duration}}h</text>
+      </view>
+    </view>
+
+    <view class="card-body">
+      <view class="content-section">
+        <text class="section-label">学习内容</text>
+        <text class="content-text">{{checkin.content}}</text>
+      </view>
+
+      <view class="notes-section">
+        <text class="section-label">学习笔记</text>
+        <text class="notes-text">{{checkin.notes || '暂无笔记'}}</text>
+      </view>
+    </view>
+
+    <view class="card-footer">
+      <text class="created-time">记录于 {{formatTime(checkin.createdAt)}}</text>
+    </view>
+  </view>
+
+  <view class="action-section">
+    <button class="btn-edit" bindtap="editCheckin">
+      <text class="btn-icon">✏️</text>
+      <text>编辑</text>
+    </button>
+    <button class="btn-delete" bindtap="deleteCheckin">
+      <text class="btn-icon">🗑️</text>
+      <text>删除</text>
+    </button>
+  </view>
+
+  <view class="edit-modal" wx:if="{{showEdit}}" bindtap="closeEdit">
+    <view class="modal-content" catchtap="stopPropagation">
+      <view class="modal-header">
+        <text class="modal-title">编辑打卡记录</text>
+        <text class="modal-close" bindtap="closeEdit">✕</text>
+      </view>
+      <view class="modal-body">
+        <view class="form-item">
+          <text class="form-label">学习内容</text>
+          <input class="form-input" value="{{editData.content}}" bindinput="onEditContent" />
+        </view>
+        <view class="form-item">
+          <text class="form-label">学习时长（小时）</text>
+          <input class="form-input" type="digit" value="{{editData.duration}}" bindinput="onEditDuration" />
+        </view>
+        <view class="form-item">
+          <text class="form-label">学习笔记</text>
+          <textarea class="form-textarea" value="{{editData.notes}}" bindinput="onEditNotes" />
+        </view>
+      </view>
+      <view class="modal-footer">
+        <button class="btn-cancel" bindtap="closeEdit">取消</button>
+        <button class="btn-save" bindtap="saveEdit">保存</button>
+      </view>
+    </view>
+  </view>
+</view>
