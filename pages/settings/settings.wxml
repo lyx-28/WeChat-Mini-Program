@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="settings-section">
+    <view class="section-title">外观</view>
+    <view class="settings-card">
+      <view class="setting-item">
+        <text class="setting-label">主题模式</text>
+        <view class="theme-switch">
+          <view class="theme-option {{theme === 'light' ? 'active' : ''}}" bindtap="onThemeChange" data-theme="light">浅色</view>
+          <view class="theme-option {{theme === 'dark' ? 'active' : ''}}" bindtap="onThemeChange" data-theme="dark">深色</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="settings-section">
+    <view class="section-title">数据</view>
+    <view class="settings-card">
+      <view class="setting-item" bindtap="onClearCache">
+        <text class="setting-label">清除缓存</text>
+        <text class="setting-value">{{cacheSize}}</text>
+      </view>
+      <view class="setting-item" bindtap="onExportData">
+        <text class="setting-label">导出打卡数据</text>
+        <text class="setting-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="settings-section">
+    <view class="section-title">关于</view>
+    <view class="settings-card">
+      <view class="setting-item">
+        <text class="setting-label">当前版本</text>
+        <text class="setting-value">v1.0.0</text>
+      </view>
+      <view class="setting-item" bindtap="onShowAbout">
+        <text class="setting-label">关于小程序</text>
+        <text class="setting-arrow">›</text>
+      </view>
+      <view class="setting-item" bindtap="onShowHelp">
+        <text class="setting-label">使用帮助</text>
+        <text class="setting-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="settings-section">
+    <view class="logout-btn" bindtap="onLogout">退出登录</view>
+  </view>
+</view>

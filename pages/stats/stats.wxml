@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="stats-header">
+    <text class="header-title">学习统计</text>
+    <text class="header-subtitle">坚持就是胜利</text>
+  </view>
+
+  <view class="overview-section">
+    <view class="overview-card">
+      <view class="overview-item">
+        <text class="overview-value">{{totalDays}}</text>
+        <text class="overview-label">累计天数</text>
+      </view>
+      <view class="overview-divider"></view>
+      <view class="overview-item">
+        <text class="overview-value">{{totalHours}}h</text>
+        <text class="overview-label">累计时长</text>
+      </view>
+      <view class="overview-divider"></view>
+      <view class="overview-item">
+        <text class="overview-value">{{streakDays}}</text>
+        <text class="overview-label">连续打卡</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="chart-section">
+    <view class="section-header">
+      <text class="section-title">本周打卡情况</text>
+    </view>
+    <view class="week-chart">
+      <view class="chart-bar" wx:for="{{weekData}}" wx:key="date">
+        <view class="bar-wrapper">
+          <view class="bar-fill" style="height: {{item.height}}%;" ></view>
+        </view>
+        <text class="bar-label">{{item.label}}</text>
+        <text class="bar-value">{{item.value}}h</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="detail-section">
+    <view class="section-header">
+      <text class="section-title">详细数据</text>
+    </view>
+    <view class="detail-card">
+      <view class="detail-row">
+        <text class="detail-label">平均每天学习</text>
+        <text class="detail-value">{{avgHours}}小时</text>
+      </view>
+      <view class="detail-row">
+        <text class="detail-label">最长连续打卡</text>
+        <text class="detail-value">{{maxStreak}}天</text>
+      </view>
+      <view class="detail-row">
+        <text class="detail-label">本月打卡</text>
+        <text class="detail-value">{{monthDays}}天</text>
+      </view>
+      <view class="detail-row">
+        <text class="detail-label">完成率</text>
+        <text class="detail-value">{{completionRate}}%</text>
+      </view>
+    </view>
+  </view>
+</view>

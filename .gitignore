@@ -1,0 +1,32 @@
+# 微信开发者工具
+.project.config.json
+project.private.config.json
+cloudfunctions/.config
+*.wxapkg
+
+# IDE
+.vscode/
+.idea/
+.hbuilderx/
+.trae/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# node_modules
+node_modules/
+**/node_modules/
+**/node_modules/**
+
+# 临时文件
+*.log
+*.tmp
+*.swp
+*.bak
+
+# 环境变量
+.env
+.env.local
+.env.*.local

@@ -1,0 +1,96 @@
+<view class="container">
+  <view class="header">
+    <view class="welcome-bar">
+      <text class="welcome-text">你好，{{userInfo.nickName || '学习者'}} 👋</text>
+    </view>
+    <view class="stats-card">
+      <view class="stat-item">
+        <text class="stat-value">{{totalDays}}</text>
+        <text class="stat-label">累计天数</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{streakDays}}</text>
+        <text class="stat-label">连续打卡</text>
+      </view>
+      <view class="stat-divider"></view>
+      <view class="stat-item">
+        <text class="stat-value">{{completionRate}}%</text>
+        <text class="stat-label">完成率</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="today-section">
+    <view class="section-header">
+      <text class="section-title">今日打卡</text>
+      <text class="section-date">{{todayDate}}</text>
+    </view>
+    <view class="today-card" wx:if="!todayChecked">
+      <view class="checkin-form">
+        <view class="form-item">
+          <text class="form-label">学习内容</text>
+          <input class="form-input" placeholder="请输入今日学习内容" value="{{newCheckin.content}}" bindinput="onContentInput" />
+        </view>
+        <view class="form-item">
+          <text class="form-label">学习时长（小时）</text>
+          <input class="form-input" type="digit" placeholder="请输入学习时长" value="{{newCheckin.duration}}" bindinput="onDurationInput" />
+        </view>
+        <view class="form-item">
+          <text class="form-label">学习笔记</text>
+          <textarea class="form-textarea" placeholder="记录今日学习心得..." value="{{newCheckin.notes}}" bindinput="onNotesInput" />
+        </view>
+        <view class="form-item">
+          <text class="form-label">学习照片（可选）</text>
+          <view class="image-upload" bindtap="onChooseImage">
+            <image class="preview-image" wx:if="{{newCheckin.imageUrl}}" src="{{newCheckin.imageUrl}}" mode="aspectFill" catchtap="onPreviewImage"></image>
+            <view class="upload-placeholder" wx:else>
+              <text class="upload-icon">📷</text>
+              <text class="upload-text">点击上传</text>
+            </view>
+            <view class="image-delete" wx:if="{{newCheckin.imageUrl}}" catchtap="onDeleteImage">×</view>
+          </view>
+        </view>
+        <button class="btn-primary checkin-btn" bindtap="submitCheckin">完成打卡</button>
+      </view>
+    </view>
+    <view class="today-card checked" wx:else>
+      <view class="checked-icon">✓</view>
+      <text class="checked-text">今日已打卡</text>
+      <text class="checked-content">{{todayCheckin.content}}</text>
+      <text class="checked-time">{{todayCheckin.duration}} 小时</text>
+      <image class="checked-image" wx:if="{{todayCheckin.imageUrl}}" src="{{todayCheckin.imageUrl}}" mode="aspectFill" bindtap="onPreviewTodayImage"></image>
+    </view>
+  </view>
+
+  <view class="history-section">
+    <view class="section-header">
+      <text class="section-title">打卡历史</text>
+      <text class="section-count">共 {{checkins.length}} 条记录</text>
+    </view>
+
+    <view class="history-list">
+      <view class="history-item" wx:for="{{checkins}}" wx:key="_id" bindtap="goToDetail" data-id="{{item._id}}">
+        <view class="item-left">
+          <text class="item-date">{{formatDate(item.date)}}</text>
+          <text class="item-weekday">{{getWeekday(item.date)}}</text>
+        </view>
+        <view class="item-center">
+          <text class="item-content">{{item.content}}</text>
+          <text class="item-notes">{{item.notes || '暂无笔记'}}</text>
+        </view>
+        <view class="item-right">
+          <image class="item-thumb" wx:if="{{item.imageUrl}}" src="{{item.imageUrl}}" mode="aspectFill" catchtap="onPreviewHistoryImage" data-url="{{item.imageUrl}}"></image>
+          <text class="item-duration">{{item.duration}}h</text>
+          <text class="item-arrow">›</text>
+        </view>
+      </view>
+
+      <view class="empty-state" wx:if="{{checkins.length === 0}}">
+        <text class="empty-icon">📝</text>
+        <text class="empty-text">暂无打卡记录</text>
+        <text class="empty-hint">点击上方按钮开始你的学习之旅</text>
+      </view>
+    </view>
+  </view>
+</view>
